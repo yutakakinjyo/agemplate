@@ -15,6 +15,49 @@ We often have **regular** meeting and manage it's agenda such as following direc
 
 You can easily setup agenda file before meething with **Agemplate**.
 
+## Getting Started
+
+get agemplate
+```
+$ go get github.com/yutakakinjyo/agemplate
+```
+
+make agendas dicretory to manage agenda files.
+```
+$ mkdir agendas
+$ cd agendas
+```
+
+create template file
+
+`template.md`
+```
+# Agenda
+
+## Member
+
+## Subjects
+```
+
+Let's setup agenda.
+```
+$ agemplate
+```
+
+You will get agenda file of meeting. Next, please write the contents.
+
+```
+$ tree .
+```
+
+```
+2016
+└── 5
+    └── 1.md
+```
+
+---
+
 # Install
 
 ```
@@ -64,45 +107,4 @@ or
 
 ```
 $ agemplate --template path/to/template.md
-```
-
-## Getting Started
-
-get agemplate
-```
-$ go get github.com/yutakakinjyo/agemplate
-```
-
-make agendas dicretory to manage agenda files.
-```
-$ mkdir agendas
-$ cd agendas
-```
-
-create template file
-
-`template.md`
-```
-# Agenda
-
-## Member
-
-## Subjects 
-```
-
-Let's setup agenda.
-```
-$ agemplate
-```
-
-You will get agenda file of meeting. Next, please write the contents.
-
-```
-$ tree .
-```
-
-```
-2016
-└── 5
-    └── 1.md
 ```

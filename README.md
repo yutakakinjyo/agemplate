@@ -52,18 +52,18 @@ $ agemplate 2016/4/1.md
 # Template
 
 You should prepare template file. Agenda file contens is copied from template file.
-Template file name must be `template`. Because **Agemplate** search file named `template`.
+Template file name must be `template.md`. Because **Agemplate** search file named `template.md`.
 
 Alternatively, You can speficy option of template file path such as following.
 
 ```
-$ agemplate -t path/to/template
+$ agemplate -t path/to/template.md
 ```
 
 or
 
 ```
-$ agemplate --template path/to/template
+$ agemplate --template path/to/template.md
 ```
 
 ## Getting Started

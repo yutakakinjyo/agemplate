@@ -26,54 +26,65 @@ func main() {
 	}
 
 	app.Action = func(c *cli.Context) error {
+		arg := c.Args().Get(0)
+		dir, agenda := divide(arg)
 
-		from_file_name := c.String("template")
-		to_file_name := c.Args().Get(0)
+		mkdir(dir)
 
-		dir_path := ""
-
-		if to_file_name == "" {
-			t := time.Now()
-			year, month, day := t.Date()
-			dir_path = strconv.Itoa(year) + "/" + strconv.Itoa(int(month))
-			to_file_name = dir_path + "/" + strconv.Itoa(day) + ".md"
-		} else {
-			path := strings.Split(to_file_name, "/")
-			for _, v := range path[:len(path)-1] {
-				dir_path = dir_path + v + "/"
-			}
-		}
-
-		if err := os.MkdirAll(dir_path, os.ModeDir|0755); err != nil {
-			if !os.IsExist(err) {
-				panic(err)
-			}
-		}
-
-		from_f, err := os.Open(from_file_name)
-		if err != nil {
-			panic(err)
-		}
-		defer from_f.Close()
-
-		if _, err := os.Stat(to_file_name); err == nil {
-			fmt.Println(to_file_name + " is alreadly file exist")
-			return nil
-		}
-
-		to_f, err := os.Create(to_file_name)
-		if err != nil {
-			panic(err)
-		}
-		defer to_f.Close()
-
-		_, err = io.Copy(to_f, from_f)
-		if err != nil {
-			panic(err)
-		}
+		tamplate := c.String("template")
+		copyy(tamplate, agenda)
 
 		return nil
 	}
-
 	app.Run(os.Args)
+}
+
+func mkdir(path string) {
+	if err := os.MkdirAll(path, os.ModeDir|0755); err != nil {
+		if !os.IsExist(err) {
+			panic(err)
+		}
+	}
+}
+
+func copyy(tamplate, agenda string) {
+
+	from_f, err := os.Open(tamplate)
+	if err != nil {
+		panic(err)
+	}
+	defer from_f.Close()
+
+	if _, err := os.Stat(agenda); err == nil {
+		fmt.Println(agenda + " is alreadly exist")
+		return
+	}
+
+	to_f, err := os.Create(agenda)
+	if err != nil {
+		panic(err)
+	}
+	defer to_f.Close()
+
+	_, err = io.Copy(to_f, from_f)
+	if err != nil {
+		panic(err)
+	}
+}
+
+func divide(arg string) (string, string) {
+	dir_path := ""
+	agenda := ""
+	if arg == "" {
+		year, month, day := time.Now().Date()
+		dir_path = strconv.Itoa(year) + "/" + strconv.Itoa(int(month))
+		agenda = dir_path + "/" + strconv.Itoa(day) + ".md"
+	} else {
+		path := strings.Split(arg, "/")
+		for _, v := range path[:len(path)-1] {
+			dir_path = dir_path + v + "/"
+		}
+		agenda = arg
+	}
+	return dir_path, agenda
 }

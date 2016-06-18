@@ -8,16 +8,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/joho/godotenv"
 	"github.com/urfave/cli"
 )
 
 func main() {
-
-	err := godotenv.Load()
-	if err != nil {
-		panic(err)
-	}
 
 	app := cli.NewApp()
 	app.Name = "agemplate"
@@ -25,10 +19,9 @@ func main() {
 
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
-			Name:   "template, t",
-			Value:  "",
-			Usage:  "path of agenda template",
-			EnvVar: "AGENDA_TEMPLATE",
+			Name:  "template, t",
+			Value: "template.md",
+			Usage: "path of agenda template",
 		},
 	}
 

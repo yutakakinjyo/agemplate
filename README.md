@@ -3,7 +3,7 @@
 **Agemplate is Agenda template generator.**
 
 Agemplate automatically generate agenda file from template.  
-We often have **regular** meeting and manage it's agenda such as following directory structure by github.
+We often have **regular** meeting and manage it's agenda such as following directory structure in github.
 
 ```
 2016

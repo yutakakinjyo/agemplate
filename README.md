@@ -2,7 +2,8 @@
 
 **Agemplate is Agenda template generator.**
 
-We often have regular meeting and manage it's agenda such as following directory structure by github.
+Agemplate automatically generate agenda file from template.  
+We often have **regular** meeting and manage it's agenda such as following directory structure by github.
 
 ```
 2016
@@ -12,7 +13,7 @@ We often have regular meeting and manage it's agenda such as following directory
     └── 8.md
 ```
 
-Agemplate automatically generate these agenda file from template.
+You can easily setup agenda file before meething with **Agemplate**.
 
 # Install
 
@@ -50,12 +51,22 @@ $ agemplate 2016/4/1.md
 
 # Template
 
-you should prepare template file and set path to Environment variable `AGENDA_TEMPLATE`.
+You should prepare template file. Agenda file contens is copied from template file.  
+Also you should set path to Environment variable `AGENDA_TEMPLATE` or `.evn` file.  
+
+`.env`
+```
+AGENDA_TEMPLATE=path/to/template
+```
+
+Alternatively, You can speficy option of template file path such as following.
+
+```
+$ agemplate -t path/to/template
+```
 
 or
 
-exectute wich option following
-
 ```
-$ agemplate -t /path/to/template.md
+$ agemplate --template path/to/template
 ```

@@ -4,5 +4,9 @@ language: go
 go:
   - 1.6
 
+before_script:
+  - go get github.com/mitchellh/gox
+  - go get github.com/urfave/cli
+  
 script:
   - make build

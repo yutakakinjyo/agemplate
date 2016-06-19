@@ -15,6 +15,7 @@ func main() {
 
 	app := cli.NewApp()
 	app.Name = "agemplate"
+	app.Version = Version
 	app.Usage = "generate agenda template in date directory"
 
 	app.Flags = []cli.Flag{

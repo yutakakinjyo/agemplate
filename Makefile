@@ -7,7 +7,7 @@ VERSION    = $(shell grep "const Version " $(TOP)/version.go | sed -E 's/.*"(.+)
 OUTPUT    = agemplate
 BUILDDIR  = $(TOP)/pkg
 XC_OS     = "darwin linux windows"
-XC_ARCH   = "386 amd64"
+XC_ARCH   = "amd64"
 DISTDIR   = $(BUILDDIR)/dist/$(VERSION)
 
 help:

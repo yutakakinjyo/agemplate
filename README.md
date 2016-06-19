@@ -1,5 +1,7 @@
 # Agemplate
 
+[![Build Status](https://travis-ci.org/yutakakinjyo/agemplate.svg?branch=travis)](https://travis-ci.org/yutakakinjyo/agemplate)
+
 **Agemplate** is **Agenda template generator.**
 
 Agemplate automatically generate agenda file from template.  

@@ -1,6 +1,6 @@
 # Agemplate
 
-[![Build Status](https://travis-ci.org/yutakakinjyo/agemplate.svg?branch=travis)](https://travis-ci.org/yutakakinjyo/agemplate)
+[![Build Status](https://travis-ci.org/yutakakinjyo/agemplate.svg?branch=master)](https://travis-ci.org/yutakakinjyo/agemplate)
 
 **Agemplate** is **Agenda template generator.**
 
